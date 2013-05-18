@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 postfix_letters = ['', '', 'M', 'B', 'T', 'x10^15']
-
+minium_order = 6
 
 def number_order(number):
     order = (len(str(int(number))) - 1)
@@ -33,7 +33,7 @@ def truncate(number, order):
 def simplify(number):
     order = number_order(number)
 
-    if order < 6:
+    if order < minium_order:
         return str(number)
     else:
         result = str(truncate(number, order)) + postfix(order)
