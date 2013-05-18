@@ -3,12 +3,7 @@ import math
 
 @given('we choose "{number}" as an input number')
 def impl(context, number):
-    number_tfloat = float(number)
-    
-    if (math.floor(number_tfloat) == number_tfloat):
-        context.number = int(number_tfloat)
-    else:
-        context.number = number_tfloat
+    context.number = float(number) if '.' in number else int(number)
         
 @when('we simplify it')
 def impl(context):
